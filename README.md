@@ -1,4 +1,5 @@
-###
+
+## NOTE: This is for ELKO Smart WIFI Termostats
 
 Prerequisite:
 Install localtuya on HACS: https://github.com/rospogrigio/localtuya
@@ -11,14 +12,16 @@ See localtuya_changed_files folder. You can copy paste these of course, but not 
 ---
 
 const.py: Added these 2 lines under Climate region:
-CONF_IS_ELKO = "is_elko"
-CONF_IS_ELKO_BATHROOM = "is_elko_bathroom"
+`CONF_IS_ELKO = "is_elko"
+CONF_IS_ELKO_BATHROOM = "is_elko_bathroom"`
 
 strings.json: Added these 2 lines:
+`
 "is_elko": "Is ELKO",
 "is_elko_bathroom": "Is ELKO and for bathroom"
+`
 
-translations: Each json file: Same changes with strings.json. Added just 2 lines related to is_elko, is_elko_bathroom.
+translations: Each json file: Same changes with strings.json. Added just 2 lines related to `is_elko, is_elko_bathroom.`
 
 climate.py:
 Many changes. Search "#ELKO" and you will see the modifications.
@@ -26,25 +29,27 @@ Many changes. Search "#ELKO" and you will see the modifications.
 ---
 
 How to add devices - steps:
-First Screen:
-	Put "device name" below in "Name"
-	Local key from below too.
-	Protocol Version: 3.3
-	Enable Debug
-	Next.
-Second Screen:
-	Put any string in "Friendly Name"
-	Set Target Temperature and Current Temperature based on matters below.
-	Temperature Step: For bathroom: 1, for others 0.5
-	Leave max and min temperatures blank
-	Precision: 0.1
-	HVAC Mode DP: 140
-	HVAC Mode Set: Manual/Auto
-	Leave Current Action DP, Action Set, ECO DP, ECO Value, Presets DP blank
-	Temperature Unit: Celsius
-	Target Precision 0.1
-	Check "Is ELKO"
-	NOTE: You must check "Is ELKO and for bathroom" during "Add Device" (first registration of device). Save it, then edit the device and uncheck, save.
+
+### First Screen:
+- Put "device name" below in "Name"
+- Local key from below too.
+- Protocol Version: 3.3
+- Enable Debug
+- Next.
+
+### Second Screen:
+- Put any string in "Friendly Name"
+- Set Target Temperature and Current Temperature based on matters below.
+- Temperature Step: For bathroom: 1, for others 0.5
+- Leave max and min temperatures blank
+- Precision: 0.1
+- HVAC Mode DP: 140
+- HVAC Mode Set: Manual/Auto
+- Leave Current Action DP, Action Set, ECO DP, ECO Value, Presets DP blank
+- Temperature Unit: Celsius
+- Target Precision 0.1
+- Check "Is ELKO"
+- NOTE: You must check "Is ELKO and for bathroom" during "Add Device" (first registration of device). Save it, then edit the device and uncheck, save.
 
 ---
 
