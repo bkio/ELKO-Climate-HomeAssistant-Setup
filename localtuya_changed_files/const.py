@@ -9,7 +9,6 @@ DATA_CLOUD = "cloud_data"
 PLATFORMS = [
     "binary_sensor",
     "climate",
-    "climate_elko",
     "cover",
     "fan",
     "light",
