@@ -312,8 +312,8 @@ class LocaltuyaClimate(LocalTuyaEntity, ClimateEntity):
             temperature = round(kwargs[ATTR_TEMPERATURE] / self._target_precision)
 
             #ELKO
-            if self._config.get(CONF_IS_ELKO, True):
-                temperature = temperature / (1 if self._config.get(CONF_IS_ELKO_BATHROOM, True) else 0.1)
+            if self._config.get(CONF_IS_ELKO) is True:
+                temperature = temperature / (1 if self._config.get(CONF_IS_ELKO_BATHROOM) is True else 0.1)
 
             await self._device.set_dp(
                 temperature, self._config[CONF_TARGET_TEMPERATURE_DP]
@@ -327,7 +327,7 @@ class LocaltuyaClimate(LocalTuyaEntity, ClimateEntity):
         """Set new target operation mode."""
 
         #ELKO
-        if self._config.get(CONF_IS_ELKO, True):
+        if self._config.get(CONF_IS_ELKO) is True:
             if hvac_mode == HVAC_MODE_OFF:
                 await self._device.set_dp(True, ELKO_HVAC_MODE_ON_OFF_DP)
             else:
@@ -369,8 +369,8 @@ class LocaltuyaClimate(LocalTuyaEntity, ClimateEntity):
             return self.dps_conf(CONF_MIN_TEMP_DP)
         
         #ELKO
-        if self._config.get(CONF_IS_ELKO, True):
-            if self._config.get(CONF_IS_ELKO_BATHROOM, True):
+        if self._config.get(CONF_IS_ELKO) is True:
+            if self._config.get(CONF_IS_ELKO_BATHROOM) is True:
                 return DEFAULT_ELKO_BATHROOM_MIN_TEMPERATURE
             else:
                 return DEFAULT_ELKO_MIN_TEMPERATURE
@@ -384,8 +384,8 @@ class LocaltuyaClimate(LocalTuyaEntity, ClimateEntity):
             return self.dps_conf(CONF_MAX_TEMP_DP)
 
         #ELKO
-        if self._config.get(CONF_IS_ELKO, True):
-            if self._config.get(CONF_IS_ELKO_BATHROOM, True):
+        if self._config.get(CONF_IS_ELKO) is True:
+            if self._config.get(CONF_IS_ELKO_BATHROOM) is True:
                 return DEFAULT_ELKO_BATHROOM_MAX_TEMPERATURE
             else:
                 return DEFAULT_ELKO_MAX_TEMPERATURE
@@ -398,8 +398,8 @@ class LocaltuyaClimate(LocalTuyaEntity, ClimateEntity):
 
         #ELKO
         elko_factor = 1
-        if self._config.get(CONF_IS_ELKO, True):
-            if self._config.get(CONF_IS_ELKO_BATHROOM, True):
+        if self._config.get(CONF_IS_ELKO) is True:
+            if self._config.get(CONF_IS_ELKO_BATHROOM) is True:
                 elko_factor = 1
             else:
                 elko_factor = 0.1
